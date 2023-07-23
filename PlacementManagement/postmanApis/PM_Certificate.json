@@ -1,0 +1,63 @@
+{
+  "id": "4e055fea-cb64-e987-297c-6e7d11bfec5b",
+  "name": "PM_CERTIFICATE",
+  "timestamp": 1663002158558,
+  "requests": [
+    {
+      "collectionId": "4e055fea-cb64-e987-297c-6e7d11bfec5b",
+      "id": "1140d1b0-16da-7bcc-a5d7-2e31876fe73c",
+      "name": "GET_getCertificate",
+      "description": "",
+      "url": "localhost:8080/certificate/getCertificate/1",
+      "method": "GET",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"year\":1,\n  \"college\":{\"id\":3}\n  \n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "4e055fea-cb64-e987-297c-6e7d11bfec5b",
+      "id": "1b8426eb-1a6e-81e3-3916-812e9f11de9b",
+      "name": "PUT_updateCertificate",
+      "description": "",
+      "url": "localhost:8080/certificate/updatePlacement?Connection= keep-alive&Content-Type=application/json",
+      "method": "PUT",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"year\":3,\n  \"college\":{\"id\":3}\n  \n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "4e055fea-cb64-e987-297c-6e7d11bfec5b",
+      "id": "281bb642-9554-90b3-4384-624159dbb015",
+      "name": "POST_addCertificate",
+      "description": "",
+      "url": "localhost:8080/certificate/addCertificate?Connection= keep-alive&Content-Type=application/json",
+      "method": "POST",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"year\":1,\n  \"college\":{\"id\":3}\n  \n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "4e055fea-cb64-e987-297c-6e7d11bfec5b",
+      "id": "4a3f4f05-f1f4-b18e-64de-13c9c83801da",
+      "name": "DELETE_deleteCertificate",
+      "description": "",
+      "url": "localhost:8080/certificate/deleteCertificate/3",
+      "method": "DELETE",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":4,\n  \"year\":5,\n  \"college\":{\"id\":3}\n  \n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1663065318428
+    }
+  ]
+}

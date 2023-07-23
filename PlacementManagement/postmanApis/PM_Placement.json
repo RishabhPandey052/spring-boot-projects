@@ -1,0 +1,63 @@
+{
+  "id": "b8ab65cf-37fb-40c7-6422-dabc112307e5",
+  "name": "PM_PLACEMENT",
+  "timestamp": 1662998743427,
+  "requests": [
+    {
+      "collectionId": "b8ab65cf-37fb-40c7-6422-dabc112307e5",
+      "id": "072830f3-bc1f-f13a-6356-f8598995ec8d",
+      "name": "POST_addPlacement",
+      "description": "",
+      "url": "localhost:8080/placement/addPlacement?Connection= keep-alive&Content-Type=application/json",
+      "method": "POST",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":1,\n  \"name\":\"placement1\",\n  \"college\":{\"id\":1},\n  \"date\":\"2022-09-12T15:55:03.667692\",\n  \"qualification\":\"Degree1\",\n  \"year\":2\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1663000185187
+    },
+    {
+      "collectionId": "b8ab65cf-37fb-40c7-6422-dabc112307e5",
+      "id": "82180c58-daa7-d390-2ac6-3453d572f8e8",
+      "name": "GET_getPlacement",
+      "description": "",
+      "url": "localhost:8080/placement/getPlacement/2",
+      "method": "GET",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"name\":\"placement2\",\n  \"college\":{\"id\":2},\n  \"date\":\"2022-10-16T15:55:03.667692\",\n  \"qualification\":\"Degree2\",\n  \"year\":4\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "b8ab65cf-37fb-40c7-6422-dabc112307e5",
+      "id": "b6ae9765-c5aa-403b-9917-c5532f75fda2",
+      "name": "PUT_updatePlacement",
+      "description": "",
+      "url": "localhost:8080/placement/updatePlacement?Connection= keep-alive&Content-Type=application/json",
+      "method": "PUT",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"name\":\"placement2\",\n  \"college\":{\"id\":2},\n  \"date\":\"2022-10-16T15:55:03.667692\",\n  \"qualification\":\"Degree2\",\n  \"year\":4\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "b8ab65cf-37fb-40c7-6422-dabc112307e5",
+      "id": "c52b50d1-0140-e844-7b85-6b1da4805eba",
+      "name": "DELETE_deletePlacement",
+      "description": "",
+      "url": "localhost:8080/placement/deletePlacement/3",
+      "method": "DELETE",
+      "headers": "",
+      "data": [],
+      "dataMode": "params",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    }
+  ]
+}

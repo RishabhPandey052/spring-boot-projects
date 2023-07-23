@@ -1,0 +1,77 @@
+{
+  "id": "d6938788-08e1-acd9-5182-f92813f3149e",
+  "name": "PM_COLLEGE",
+  "timestamp": 1662994882913,
+  "requests": [
+    {
+      "collectionId": "d6938788-08e1-acd9-5182-f92813f3149e",
+      "id": "73859b95-9ad1-24e2-5884-ee647afb6f19",
+      "name": "POST_addPlacement",
+      "description": "",
+      "url": "localhost:8080/college/schedulePlacement?Connection= keep-alive&Content-Type=application/json",
+      "method": "POST",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":1,\n  \"name\":\"placement1\",\n  \"college\":{\"id\":1},\n  \"date\":\"2022-09-12T15:55:03.667692\",\n  \"qualification\":\"Degree1\",\n  \"year\":2\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "d6938788-08e1-acd9-5182-f92813f3149e",
+      "id": "8b05ca01-1983-9c9f-73ff-aeff42fa61b0",
+      "name": "DELETE_college",
+      "description": "college admin exists",
+      "url": "localhost:8080/college/deleteCollege/4",
+      "method": "DELETE",
+      "headers": "",
+      "data": [],
+      "dataMode": "params",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "d6938788-08e1-acd9-5182-f92813f3149e",
+      "id": "9bd966a7-85c0-6d83-35ae-f55736c4efc1",
+      "name": "POST_ADDITION",
+      "description": "college admin exists",
+      "url": "localhost:8080/college/addCollege?Connection= keep-alive&Content-Type=application/json",
+      "method": "POST",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":4,\n  \"collegeAdmin\":{\n  \t\"id\":1\t},\n  \"collegeName\":\"college4\",\n  \"location\":\"CN\"\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1662995606857
+    },
+    {
+      "collectionId": "d6938788-08e1-acd9-5182-f92813f3149e",
+      "id": "a432e5fd-071b-253d-ae96-1b76e9aed9cb",
+      "name": "GET_College",
+      "description": "college admin exists",
+      "url": "localhost:8080/college/getCollege/2",
+      "method": "GET",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":3,\n  \"collegeAdmin\":{\n  \t\"id\":3\t},\n  \"collegeName\":\"college3\",\n  \"location\":\"MUB\"\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "d6938788-08e1-acd9-5182-f92813f3149e",
+      "id": "c3c1834f-3b35-e95e-b94b-c70f3d63b318",
+      "name": "PUT_Updation",
+      "description": "college admin exists",
+      "url": "localhost:8080/college/updateCollege?Connection= keep-alive&Content-Type=application/json",
+      "method": "PUT",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":3,\n  \"collegeAdmin\":{\n  \t\"id\":3\t},\n  \"collegeName\":\"college3\",\n  \"location\":\"MUB\"\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    }
+  ]
+}

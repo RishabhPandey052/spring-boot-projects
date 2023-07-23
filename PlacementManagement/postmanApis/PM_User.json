@@ -1,0 +1,35 @@
+{
+  "id": "8752e92c-dedf-6920-8b83-ccf8b21653b2",
+  "name": "PM_USER",
+  "timestamp": 1662990961974,
+  "requests": [
+    {
+      "collectionId": "8752e92c-dedf-6920-8b83-ccf8b21653b2",
+      "id": "95b37a26-e317-40b0-688d-aa04e7835174",
+      "name": "PUT-updation",
+      "description": "",
+      "url": "localhost:8080/user/updateUser?Connection= keep-alive&Content-Type=application/json",
+      "method": "PUT",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":2,\n  \"name\":\"College2admin\",\n  \"type\":\"collegeadmin\",\n  \"password\":\"strongpasswordYes\"\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    },
+    {
+      "collectionId": "8752e92c-dedf-6920-8b83-ccf8b21653b2",
+      "id": "ff144606-1b76-1fd9-dc7d-14168a5092ad",
+      "name": "POST-Addition",
+      "description": "",
+      "url": "localhost:8080/user/addUser?Connection= keep-alive&Content-Type=application/json",
+      "method": "POST",
+      "headers": "Connection: keep-alive\nContent-Type: application/json\n",
+      "data": "{\n  \"id\":1,\n  \"name\":\"Useradmin1\",\n  \"type\":\"collegeadmin\",\n  \"password\":\"strongpasswordYes\"\n}",
+      "dataMode": "raw",
+      "timestamp": 0,
+      "responses": [],
+      "version": 2
+    }
+  ]
+}
