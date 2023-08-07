@@ -18,7 +18,20 @@ public class EntryClass implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		vendorOperations();
+		
+	}
+	
+	public  void  vendorOperations() {
+		log.info("Inside vendor operations");
+//		adding vendor operation
 		oneToManyEntry.addVendor(); 
+		oneToManyEntry.addVendor(); 
+		
+		
+//		get all vendors
+		oneToManyEntry.getAllVendors();
+		
 	}
 	
 }
