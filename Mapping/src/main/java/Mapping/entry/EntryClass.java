@@ -29,8 +29,11 @@ public class EntryClass implements ApplicationRunner {
 		oneToManyEntry.addVendor(); 
 		
 		
-//		get all vendors
-		oneToManyEntry.getAllVendors();
+//		get  specific vendor  and all vendors
+		oneToManyEntry.getVendor();
+		
+//		add Customer To Vendor
+		oneToManyEntry.addCustomerToVendor();
 		
 	}
 	

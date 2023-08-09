@@ -1,8 +1,6 @@
 package Mapping.entity;
 
 
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

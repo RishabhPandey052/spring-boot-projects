@@ -1,6 +1,7 @@
 package Mapping.operations;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class OneToManyEntry {
 //		Relations
 		v.setCustomers(new HashSet<Customer>(Arrays.asList(c1,c2,c3)));
 		v1.setCustomers(new HashSet<Customer>(Arrays.asList(new Customer(null,"customer4"))));
-		v2.setCustomers(new HashSet<Customer>(Arrays.asList(c1)));
+		v2.setCustomers(new HashSet<Customer>(Arrays.asList(c3)));
 		
 		
 		
@@ -100,7 +101,7 @@ public class OneToManyEntry {
 
 			} 
 			
-			/* EXPLATION
+			/* EXPLATION 
 			 * Third One object insertion  gives Exceptions beacuse of child Object already got saved
 			 * save 2 entity then update relation for each vendor and their customers
 			 * 	
@@ -143,7 +144,7 @@ public class OneToManyEntry {
 				
 			}
 			
-			/* EXPLATION
+			/* EXPLATION -- In console refer customerName
 			 * Insertion happens succesfully
 			 * save 3 vendor, 4 customer, and update relation all at once, so common one get Updated
 			 * 
@@ -175,13 +176,96 @@ public class OneToManyEntry {
 	
 	
 	
-	public void getAllVendors() {
-		List<Vendor> temp =   vendorRepo.findAll();
-
+	public void getVendor() {
 		
-		temp.forEach(e->{
-			System.out.println(e);
-		});
+		try {
+			
+			int vendorId = 1;
+			Vendor vendor = vendorRepo.findById(vendorId).get();
+			log.info("Fetched with id "+vendorId +" {}",vendor);
+						
+		} catch (Exception e) {
+			log.error("Value doesn't exist, Try changing id");
+		}
+		
+		
+		try {
+			List<Vendor> temp = vendorRepo.findAll();
+			log.info("All vendors");
+			int index = 0;
+			for(Vendor e : temp) {
+				log.info("" + (++index)+ ". " + e);
+			}
+			
+		}catch(Exception e) {
+			log.error("Error in fetching all vendors "+ e.getMessage());
+		}
+	}
+
+
+
+
+
+	public void addCustomerToVendor() {
+		
+//		saving a vendor
+		
+		Vendor v = new Vendor(null, "vendor5",
+				
+				new HashSet<Customer>(
+					Arrays.asList(						
+						new Customer(null, "Customer10"),
+						new Customer(null, "Customer11"),
+						new Customer(null, "Customer12")
+					)					
+				));
+		
+		int vendorid = vendorRepo.save(v).getVendorId();
+		
+		log.info("Vendor Id for updating"+vendorid);
+		
+//		START - Update Operation 
+		
+		try {
+			Vendor exisitingVendor =  vendorRepo.findById(vendorid).get();
+			
+			
+			log.info("Before Updating {}", exisitingVendor);
+//			new Customer
+			Customer c = new Customer(null, "Customer13");
+			
+			
+//			upating parent
+			exisitingVendor.setVendorName(exisitingVendor.getVendorName()+"-U");
+			
+//			updating all childs			
+			exisitingVendor.getCustomers().stream()
+											.forEach(e->{
+//												System.out.println(e);
+												
+												e.setCustomerName(e.getCustomerName()+"-U");
+												}
+											);
+//			adding one more child
+			exisitingVendor.getCustomers().add(c);
+			
+			log.info("After Updating {}", exisitingVendor);
+			
+			
+			vendorRepo.save(exisitingVendor);
+			
+			
+			Vendor fetchedUpdatedVendor =  vendorRepo.findById(vendorid).get();
+						
+			log.info("Fetching from repo after saving updated object  {}", fetchedUpdatedVendor);
+			
+		}catch(Exception e) {
+			
+		}
+		
+//		END - Update Operation   
+		
+		
 	}
 	
 	
