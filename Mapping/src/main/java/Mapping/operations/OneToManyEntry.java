@@ -167,7 +167,7 @@ public class OneToManyEntry {
 			
 		}
 		
-			
+		log.info("Exiting AddVendor");
 		
 		
 	}
@@ -178,7 +178,10 @@ public class OneToManyEntry {
 	
 	public void getVendor() {
 		
+		log.info("Getting vendor");
+		
 		try {
+			log.info("Getting specific vendor");
 			
 			int vendorId = 1;
 			Vendor vendor = vendorRepo.findById(vendorId).get();
@@ -200,6 +203,8 @@ public class OneToManyEntry {
 		}catch(Exception e) {
 			log.error("Error in fetching all vendors "+ e.getMessage());
 		}
+		
+		log.info("Exiting getting vendor");
 	}
 
 
@@ -208,9 +213,11 @@ public class OneToManyEntry {
 
 	public void addCustomerToVendor() {
 		
+		log.info("Inside Add Customer To Vendor");
+		
 //		saving a vendor
 		
-		Vendor v = new Vendor(null, "vendor5",
+		Vendor v = new Vendor(null, "vendor4",
 				
 				new HashSet<Customer>(
 					Arrays.asList(						
@@ -222,24 +229,24 @@ public class OneToManyEntry {
 		
 		int vendorid = vendorRepo.save(v).getVendorId();
 		
-		log.info("Vendor Id for updating"+vendorid);
+		log.info("Vendor Id for updating "+vendorid);
 		
 //		START - Update Operation 
 		
 		try {
-			Vendor exisitingVendor =  vendorRepo.findById(vendorid).get();
+			Vendor existingVendor =  vendorRepo.findById(vendorid).get();
 			
 			
-			log.info("Before Updating {}", exisitingVendor);
+			log.info("Before Updating {}", existingVendor);
 //			new Customer
-			Customer c = new Customer(null, "Customer13");
+			Customer c = new Customer(null, "Customer13-N");
 			
 			
 //			upating parent
-			exisitingVendor.setVendorName(exisitingVendor.getVendorName()+"-U");
+			existingVendor.setVendorName(existingVendor.getVendorName()+"-U");
 			
 //			updating all childs			
-			exisitingVendor.getCustomers().stream()
+			existingVendor.getCustomers().stream()
 											.forEach(e->{
 //												System.out.println(e);
 												
@@ -247,12 +254,12 @@ public class OneToManyEntry {
 												}
 											);
 //			adding one more child
-			exisitingVendor.getCustomers().add(c);
+			existingVendor.getCustomers().add(c);
 			
-			log.info("After Updating {}", exisitingVendor);
+			log.info("After Updating {}", existingVendor);
 			
 			
-			vendorRepo.save(exisitingVendor);
+			vendorRepo.save(existingVendor);
 			
 			
 			Vendor fetchedUpdatedVendor =  vendorRepo.findById(vendorid).get();
@@ -260,11 +267,116 @@ public class OneToManyEntry {
 			log.info("Fetching from repo after saving updated object  {}", fetchedUpdatedVendor);
 			
 		}catch(Exception e) {
-			
+			log.info("error in updating ");
 		}
+		
+		log.info("Exiting Add Customer To Vendor");
 		
 //		END - Update Operation   
 		
+		
+	}
+
+
+
+
+
+	public void removeCustomerFromVendor() {
+		
+		log.info("Inside Remove Customer To Vendor");
+		
+//		saving a vendor
+		
+		Vendor v = new Vendor(null, "vendor5",
+				
+				new HashSet<Customer>(
+					Arrays.asList(						
+						new Customer(null, "Customer20"),
+						new Customer(null, "Customer21"),
+						new Customer(null, "Customer22")
+					)					
+				));
+		
+		int vendorId = vendorRepo.save(v).getVendorId();
+		
+		log.info("Vendor Id for deleting child "+vendorId);
+		
+		
+//		START Delete child operation
+		
+		try {
+			Vendor existingVendor =  vendorRepo.findById(vendorId).get();
+			
+			log.info("Before deleting customer {}", existingVendor);
+			Customer c = ( Customer )existingVendor.getCustomers().toArray()[0];
+			
+
+//			doesn't remove child object just set foreign key to null
+//			to delete child too set (orphanRemoval = true) in relationship from parent class 
+			existingVendor.getCustomers().remove(c);
+			
+			
+			vendorRepo.save(existingVendor);
+			
+			Vendor fetchedUpdatedVendor =  vendorRepo.findById(vendorId).get();
+			
+			log.info("Fetching from repo after saving deleting customer {}", fetchedUpdatedVendor);
+			
+			
+		} catch (Exception e) {
+			
+			
+			log.error("error in delete operation " + e.getMessage());
+		}
+		
+//		END   Delete child operation
+		
+		log.info("Exiting Remove Customer To Vendor");
+		
+	}
+
+
+
+
+
+	public void removeVendor() {
+		
+		log.info("Inside Remove Vendor");
+		
+//		saving a vendor
+		Vendor v = new Vendor(null, "vendor6",
+				
+				new HashSet<Customer>(
+					Arrays.asList(						
+						new Customer(null, "Customer31"),
+						new Customer(null, "Customer32")
+					)					
+				));
+		
+		int vendorId = vendorRepo.save(v).getVendorId();
+		
+		log.info("Vendor Id for deleting parent "+vendorId);
+		
+		
+//		START Delete parent operation
+		
+		try {
+			Vendor existingVendor =  vendorRepo.findById(vendorId).get();
+			
+			
+			vendorRepo.delete(existingVendor);
+//			delete all childs first then parent
+			
+			
+			
+		} catch (Exception e) {
+			
+			log.error("error in deleting vendor " + e.getMessage());
+		}
+		
+//		END   Delete parent operation
+		
+		log.info("Exiting Remove Customer To Vendor");
 		
 	}
 	

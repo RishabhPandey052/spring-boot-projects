@@ -35,6 +35,12 @@ public class EntryClass implements ApplicationRunner {
 //		add Customer To Vendor
 		oneToManyEntry.addCustomerToVendor();
 		
+//		removing customer from Vendor
+		oneToManyEntry.removeCustomerFromVendor();
+		
+//		removing a vendor
+		oneToManyEntry.removeVendor();
+		
 	}
 	
 }
