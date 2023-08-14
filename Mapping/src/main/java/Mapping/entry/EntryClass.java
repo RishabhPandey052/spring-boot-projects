@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import Mapping.operations.ManyToOneEntry;
 import Mapping.operations.OneToManyEntry;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,15 +16,19 @@ public class EntryClass implements ApplicationRunner {
 	@Autowired
 	OneToManyEntry oneToManyEntry;
 	
+	@Autowired
+	ManyToOneEntry  manyToOneEntry;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		vendorOperations();
+//		vendorOperations();
+		
+		projectOperations();
 		
 	}
 	
 	public  void  vendorOperations() {
-		log.info("Inside vendor operations");
+		log.info("Inside --> One to Many (Vendor operations)");
 //		adding vendor operation
 		oneToManyEntry.addVendor(); 
 		oneToManyEntry.addVendor(); 
@@ -41,6 +46,20 @@ public class EntryClass implements ApplicationRunner {
 //		removing a vendor
 		oneToManyEntry.removeVendor();
 		
+		
+		log.info("Exiting --> One to Many (Vendor operations)");
+		
+			
+	}
+	
+	public void projectOperations() {
+		
+		log.info("Inside  --> Many to One (Project operations");
+		
+//		save a project
+		manyToOneEntry.addProject();
+		
+		log.info("Exiting --> Many to One (Project operations");
 	}
 	
 }
