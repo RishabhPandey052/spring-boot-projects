@@ -59,6 +59,9 @@ public class EntryClass implements ApplicationRunner {
 //		save a project
 		manyToOneEntry.addProject();
 		
+//		get project
+		manyToOneEntry.getStudentsWithProject();
+		
 		log.info("Exiting --> Many to One (Project operations");
 	}
 	
